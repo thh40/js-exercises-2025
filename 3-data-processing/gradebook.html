@@ -64,9 +64,32 @@
         console.log("---------------------")
         console.log("PART 1...")
 
+        // these are equivalent
+        console.log("A)")
+        console.log(gradebook.downloadDate)
+        console.log(gradebook["downloadDate"])
+
+        console.log("B)")
+        console.log(gradebook.students.length)
+
+        console.log("C)")
+        gradebook.students.forEach(function(student){
+            console.log(student.name, student.finalGrade)
+        })
+
+        console.log("D)")
+        // var grades = [75, 80, 85, 90, 95, 100]
+        var grades = gradebook.students.map(function(student){
+            return student.finalGrade
+        })
+        console.log("GRADES:", grades)
 
 
+        console.log("E)")
+        console.log("MEAN:", d3.mean(grades))
 
+        console.log("F)")
+        console.log("MEDIAN:", d3.median(grades))
 
 
         console.log("---------------------")
