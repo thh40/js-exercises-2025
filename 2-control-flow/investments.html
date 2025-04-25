@@ -58,7 +58,18 @@
         console.log("---------------------")
         console.log("PART 1...")
 
+        var balance = 150000
+        var year = 0
 
+        while(balance < 1000000){
+            // annual return
+            year = year + 1
+            balance = balance * 1.08
+            // console.log(year, balance) // for each year
+        }
+
+        console.log("DONE!")
+        console.log(year, balance) // after the loop has finished
 
 
 
@@ -66,7 +77,20 @@
         console.log("---------------------")
         console.log("PART 2...")
 
+        var balance = 150000
+        var year = 0
+        var rateGenerator = d3.randomNormal(0.08, 0.15)
 
+        while(balance < 1000000){
+            // annual return
+            var rate = rateGenerator()
+            year = year + 1
+            balance = balance * (1 + rate)
+            console.log(year, balance) // for each year
+        }
+
+        console.log("DONE!")
+        console.log(year, balance) // after the loop has finished
 
 
 
