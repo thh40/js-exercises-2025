@@ -86,14 +86,20 @@
             sessionStorage.setItem("ALPHAVANTAGE_API_KEY", apiKey)
         }
 
+        var inputSymbol = document.getElementById("input-symbol")
+        var lookupButton = document.getElementById("lookup")
+
+        var displayName = document.getElementById("display-name")
+        var displayDesc = document.getElementById("display-description")
+        var displayLink = document.getElementById("display-link")
 
 
         // FUNCTION DEFINITION
         function lookupCompany() {
-            var symbol = NFLX
+            var symbol = inputSymbol.value
             console.log("Symbol:", symbol)
 
-            var requestUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`
+            var requestUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=NFLX&apikey=ZA7MCBB2Y439DIXR`
             d3.json(requestUrl).then(function(data) {
                 console.log("RESPONSE:", data)
 
