@@ -87,14 +87,55 @@
         console.log("---------------------")
         console.log("PART 1...")
 
+        console.log("A)")
+        console.log("DRIVER:", "Your driver is", trip.driver.first_name)
 
+        console.log("B)")
+        console.log("VEHICLE PLATE:", trip.vehicle.licensePlate)
+ 
+        console.log("C)")
+        console.log("STOPS:", trip.stops.length)
 
+        console.log("D)")
+        console.log("FIRST STOP:", trip.stops[0].destination) 
+        
+        console.log("E)")
+        console.log("LAST STOP:", trip.stops[trip.stops.length - 1].destination)
+
+        console.log("F)")
+        console.log("PASSENGERS:")
+        trip.stops.forEach(function(stop) {
+            console.log("...", stop.passenger)
+        })
+        
+        console.log("G)")
+        var fares = trip.stops.map(function(stop) {
+            return stop.fare 
+        })
+        console.log("FARES:", fares)
+
+        console.log("H)")
+        var totalFare = d3.sum(fares)
+        console.log("TOTAL FARE:", `$${totalFare.toFixed(2)}`)
 
 
         console.log("---------------------")
         console.log("PART 2...")
 
+        // A
+        document.getElementById("display-driver").textContent = trip.driver.first_name
+        
+        // B
+        var vehicle = trip.vehicle
+        document.getElementById("display-vehicle").textContent = `${vehicle.make} ${vehicle.model} [${vehicle.licensePlate}]`
 
+        // C
+        var ol = document.getElementById("display-passengers")
+        trip.stops.forEach(stop => {
+            var li = document.createElement("li")
+            li.textContent = stop.passenger
+            ol.appendChild(li)
+        })
 
 
 
