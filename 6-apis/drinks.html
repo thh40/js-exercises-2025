@@ -73,13 +73,46 @@
             console.log("---------------------")
             console.log("PART 1...")
 
+            console.log("DRINKS:", data.drinks.length)
 
+            data.drinks.forEach(drink => {
+                console.log(drink.idDrink, drink.strDrink)
+            })
 
-
+            console.log("--------------------------")
+            var drinkId = 13032
+            console.log("DRINK ID:", drinkId)
+            var requestUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`
+            d3.json(requestUrl).then(function(drinkData){
+                console.log("DATA:", drinkData)
+                var drink = drinkData.drinks[0]
+                console.log(drink.idDrink, drink.strDrink, drink.strGlass)
+                console.log(drink.strInstructions)
+            })
 
             console.log("---------------------")
             console.log("PART 2...")
 
+            var displayDrinksCount = document.getElementById("display-drinks-count")
+            var displayDrinks = document.getElementById("display-drinks")
+
+            displayDrinksCount.innerText = data.drinks.length
+
+            data.drinks.forEach(drink => {
+                var div = document.createElement("div")
+
+                var p = document.createElement("p")
+                p.innerText = drink.strDrink
+                div.appendChild(p)
+
+                var img = document.createElement("img")
+                img.src = drink.strDrinkThumb
+                img.height = 100
+                div.appendChild(img)
+
+                displayDrinks.appendChild(div)
+
+            })
 
 
 

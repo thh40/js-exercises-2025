@@ -90,8 +90,8 @@
 
         // FUNCTION DEFINITION
         function lookupCompany() {
-            var symbol = inputSymbol.value
-            console.log("SYMBOL:", symbol)
+            var symbol = NFLX
+            console.log("Symbol:", symbol)
 
             var requestUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`
             d3.json(requestUrl).then(function(data) {
@@ -123,9 +123,11 @@
 
         // FUNCTION INVOCATIONS
         // invoke function when the page loads:
-        //lookupCompany()
+        lookupCompany()
         // invoke function when button is clicked:
-        //lookupButton.addEventListener("click", lookupCompany, false)
+        lookupButton.addEventListener("click", lookupCompany, false)
+
+        //referenced solutions provided by Professor
 
     </script>
 </body>
